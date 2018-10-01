@@ -28,15 +28,25 @@
 				<section>
 					<h3>Scripter le déploiement d'un site Jekyll sur OVH avec lftp</h3>
 				</section>
-				<section><img src="./jekyll-logo.png"></section>
-				<section><img src="./github_pages.png" style='border=none;'></section>
+				<section><img src="./jekyll-logo.svg"></section>
+				<section>
+					<section><img src="./github_pages.svg"></section>
+					<section><img src="./github_on_jekyll.png"></section>
+				</section>
+
 				<section><img src="./ovh_start.png"></section>
 				<section><img src="./ovh_no_ssh.png"></section>
 				<section data-background-image='./filezilla.png' data-background-size='contain'></section>
 				<section>
+					Ubuntu
 					<pre><code data-trim>
 						$ sudo apt-get update
 						$ sudo apt-get install lftp
+					</code></pre>
+
+					Mac OS
+					<pre><code data-trim>
+						$ brew install lftp
 					</code></pre>
 				</section>
 
@@ -49,15 +59,14 @@
 
 							. ./.env
 
-							local_path=/home/user/dev/repo/_site
+							local_path=/home/user/repo/_site
 
 							jekyll build
 
 							lftp ftp://$user:$pwd@$host -e "
 							  ls -R ;
 							  mirror --reverse $local_path /www \
-							         --delete \
-							         --verbose ;
+							         --delete ;
 							  quit"
 						</code></pre>
 					</section>
