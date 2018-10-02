@@ -68,8 +68,8 @@
 							jekyll build
 
 							lftp ftp://$user:$pwd@$host -e "
-							  ls -R ;
 							  mirror --reverse $local_path /www \
+							         --scan-all-first
 							         --delete ;
 							  quit"
 						</code></pre>
